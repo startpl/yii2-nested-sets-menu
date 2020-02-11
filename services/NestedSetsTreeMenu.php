@@ -89,7 +89,7 @@ class NestedSetsTreeMenu extends NestedSetsTree
      */
     private function makeActive(&$node)
     {
-        $path = Yii::$app->request->getPathInfo();
+        $path = \Yii::$app->request->getPathInfo();
 
         if('/' . $path == $node['url']){
             $node['active'] = true;

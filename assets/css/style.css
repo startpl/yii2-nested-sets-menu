@@ -1,4 +1,4 @@
-.categories-menu{
+.ns-menu{
     list-style: none;
     margin: 0;
     padding: 0;
@@ -7,28 +7,28 @@
     background:#fff;
 }
 
-.categories-menu > li {
+.ns-menu > li {
     position: relative;
     margin: 0;
     padding: 0;
 }
 
-.categories-menu > li > a {
+.ns-menu > li > a {
     border-left: 5px solid transparent;
 }
 
-.categories-menu a{
+.ns-menu a{
     position: relative;
     display: block;
     padding: 5px 5px 5px 10px;
     font-size:14px;
 }
 
-.categories-menu > li.active > a{
+.ns-menu > li.active > a{
     border-left-color: #00a65a;
 }
 
-.categories-menu li > a > .collapse_btn {
+.ns-menu li > a > .collapse_btn {
     position: absolute;
     right: 5px;
     top: 50%;
@@ -41,12 +41,12 @@
     align-items: center;
 }
 
-.categories-menu>li>.treeview-menu {
+.ns-menu>li>.treeview-menu {
     margin: 0;
     background: #f4f4f4;
 }
 
-.categories-menu .treeview-menu {
+.ns-menu .treeview-menu {
     display: none;
     list-style: none;
     padding: 0;
@@ -54,19 +54,19 @@
     padding-left: 10px;
 }
 
-.categories-menu .treeview-menu > li {
+.ns-menu .treeview-menu > li {
     margin: 0;
 }
 
-.categories-menu .treeview-menu > li > a {
+.ns-menu .treeview-menu > li > a {
     color: #3c8dbc;
 }
-.categories-menu li.active > a{
+.ns-menu li.active > a{
     font-weight: bold;
 }
-.categories-menu li.active > ul.treeview-menu{
+.ns-menu li.active > ul.treeview-menu{
     display: block;
 }
-.categories-menu li a .collapse_btn.open{
+.ns-menu li a .collapse_btn.open{
     transform: rotate(-90deg);
 }
