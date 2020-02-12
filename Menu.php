@@ -1,9 +1,9 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @link https://github.com/startpl/yii2-nested-sets-menu
+ * @copyright Copyright (c) 2019 Koperdog
+ * @license https://github.com/startpl/yii2-nested-sets-menu/blob/master/LICENSE
  */
 
 namespace startpl\yii2NestedSetsMenu;
@@ -13,10 +13,25 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 /**
- * Description of CategoriesMenu
+ * The Menu widget is used to display nested sets data as Tree Menu
+ * 
+ * The main property of Menu is [[items]], which specifies the possible items in the menu.
+ * A menu item can contain sub-items which specify the sub-menu under that menu item.
  *
+ * A basic usage looks like the following:
+ *
+ * ```php
+ * <?= Menu::widget([
+ *     'items' => \startpl\yii2NestedSetsMenu\services\MenuArray::getData($data), // $data is your models|rows
+ *     'options' => ['id'=>'#main-menu', 'class' => 'menu'],
+ *     'encodeLabels'=>false,
+ *     'activateParents'=>true,
+ *     'activeCssClass'=>'active',
+ * ]);?>
+ * ```
+ * 
  * @author Koperdog <koperdog.dev@gmail.com>
- * @version 1.0
+ * @version 1.0.0
  */
 class Menu extends \yii\widgets\Menu{
     
