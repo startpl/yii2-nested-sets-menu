@@ -28,7 +28,7 @@ A basic usage looks like the following:
  ```php
  * <?= Menu::widget([
  *     'items' => \startpl\yii2NestedSetsMenu\services\MenuArray::getData($data), // $data is your models|rows
- *     'options' => ['id'=>'#main-menu', 'class' => 'menu'],
+ *     'options' => ['id'=>'main-menu', 'class' => 'menu'],
  *     'encodeLabels'=>false,
  *     'activateParents'=>true,
  *     'activeCssClass'=>'active',
