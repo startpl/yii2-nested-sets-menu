@@ -53,6 +53,15 @@ class Menu extends \yii\widgets\Menu{
         
         $view = $this->getView();
         base\MenuAsset::register($view);
+        
+        $view->registerJs(
+        "$('.ns-menu .collapse_btn').click(function(){
+
+            $(this).toggleClass('open');
+            $(this).parent().parent().children('ul').slideToggle();
+
+            return false;
+        });", \yii\web\View::POS_READY);
     }
     
     protected function renderItem($item)
@@ -79,5 +88,44 @@ class Menu extends \yii\widgets\Menu{
         return strtr($template, [
             '{label}' => $item['label'],
         ]);
+    }
+    
+    protected function normalizeItems($items, &$active)
+    {
+        foreach ($items as $i => $item) {
+            if (isset($item['visible']) && !$item['visible']) {
+                unset($items[$i]);
+                continue;
+            }
+            if (!isset($item['label'])) {
+                $item['label'] = '';
+            }
+            $encodeLabel = isset($item['encode']) ? $item['encode'] : $this->encodeLabels;
+            $items[$i]['label'] = $encodeLabel ? Html::encode($item['label']) : $item['label'];
+            $hasActiveChild = false;
+            if (isset($item['items'])) {
+                $items[$i]['items'] = $this->normalizeItems($item['items'], $hasActiveChild);
+                if (empty($items[$i]['items']) && $this->hideEmptyItems) {
+                    unset($items[$i]['items']);
+                    if (!isset($item['url'])) {
+                        unset($items[$i]);
+                        continue;
+                    }
+                }
+            }
+            if (!isset($item['active'])) {
+                if ($this->activateParents && $hasActiveChild || $this->activateItems && $this->isItemActive($item)) {
+                    $active = $items[$i]['active'] = true;
+                } else {
+                    $items[$i]['active'] = false;
+                }
+            } elseif ($item['active'] instanceof Closure) {
+                $active = $items[$i]['active'] = call_user_func($item['active'], $item, $hasActiveChild, $this->isItemActive($item), $this);
+            } elseif ($item['active']) {
+                $active = true;
+            }
+        }
+
+        return array_values($items);
     }
 }

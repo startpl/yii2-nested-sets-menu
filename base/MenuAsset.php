@@ -25,7 +25,7 @@ class MenuAsset extends AssetBundle
     ];
     
     public $js = [
-        'js/script.js',
+        //'js/script.js',
     ];
     
     public $depends = [
