@@ -1,6 +1,6 @@
 {
     "name": "startpl/yii2-nested-sets-menu",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Widget to display nested sets as Menu",
     "type": "yii2-extension",
     "keywords": ["Nested sets menu"," yii2 ns menu"],
