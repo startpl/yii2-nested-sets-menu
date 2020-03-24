@@ -26,14 +26,14 @@ to the require section of your `composer.json` file.
 -----
 A basic usage looks like the following:
  ```php
- * <?= Menu::widget([
- *     'items' => \startpl\yii2NestedSetsMenu\services\MenuArray::getData($data), // $data is your models|rows
- *     'options' => ['id'=>'main-menu', 'class' => 'menu'],
- *     'encodeLabels'=>false,
- *     'activateParents'=>true,
- *     'activeCssClass'=>'active',
- * ]);?>
- * 
+ <?= Menu::widget([
+     'items' => \startpl\yii2NestedSetsMenu\services\MenuArray::getData($data), // $data is your models|rows
+     'options' => ['id'=>'main-menu', 'class' => 'menu'],
+     'encodeLabels'=>false,
+     'activateParents'=>true,
+     'activeCssClass'=>'active',
+ ]);?>
+ 
  ```
  
 ### Also you can extending of MenuArray, NestedSetsTreeMenu for fine-tune your data
